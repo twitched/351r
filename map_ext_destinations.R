@@ -1,4 +1,5 @@
 # read from capture csv
+setwd("~/351r/")
 raw <- read.csv("capture2.csv")
 
 # get destination IP and make it a character type
@@ -28,3 +29,9 @@ ip_freq <- as.data.frame(table(dest_prot$dest_ip))
 #load the freegeoip function
 source("freegeoip.R")
 geo <- freegeoip(as.character(ip_freq$Var1))
+
+#combine the freqency table with the geographic info
+geo_ip <- cbind(c(ip_freq$freq, geo))
+
+#save the geographical data so we don't have to get it again
+write.csv(geo, file="geo_ip.csv")
