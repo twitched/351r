@@ -13,5 +13,5 @@ names(geo_ip)[1] <- "frequency"
 #save the geographical data so we don't have to get it again
 write.csv(geo_ip, file="geo_ip_ssh.csv")
 #save the user file so we don't have to get it again
-names(user_freq)[1] <- "frequency"
+names(user_freq)[1] <- "user"
 write.csv(user_freq, file="user_freq_ssh.csv")
