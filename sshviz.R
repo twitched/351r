@@ -11,7 +11,8 @@ world <- subset(world, region != "Antarctica")
 
 gg <- ggplot()
 gg <- gg + geom_polygon(data=world, aes(long, lat, group=group, xmin=-100,xmax=100), fill="white", color="grey")
-gg <- gg + geom_point(data=ip_data, aes(x=longitude, y=latitude, size=frequency), color="blue") 
+gg <- gg + geom_point(data=ip_data, aes(x=longitude, y=latitude, size=frequency), color="blue", alpha=.5) 
+gg <- gg + scale_size(range = c(3, 15))
 gg <- gg + labs(x="", y="")
 gg
 
